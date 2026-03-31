@@ -1,0 +1,25 @@
+.DS_Store
+
+# Go build artifacts
+server
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Coverage
+coverage.out
+*.coverprofile
+
+# IDE files
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Runtime uploads
+data/uploads/
