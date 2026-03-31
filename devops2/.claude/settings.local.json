@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(go build:*)",
+      "Bash(git -C . ls-files -m)",
+      "Bash(git -C . ls-files -o --exclude-standard)",
+      "Bash(go mod tidy:*)",
+      "Bash(docker compose build:*)",
+      "Bash(docker compose:*)",
+      "Bash(curl:*)",
+      "Bash(docker exec:*)"
+    ]
+  }
+}

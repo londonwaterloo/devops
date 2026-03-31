@@ -1,0 +1,26 @@
+server:
+  host: "localhost"
+  port: 8080
+
+storage:
+  upload_dir: "./data/uploads"
+  max_file_size: 10485760  # 10MB in bytes
+
+templates:
+  dir: "./internal/infrastructure/web/templates"
+
+mongodb:
+  uri: "mongodb://localhost:27117"
+  database: "file_server"
+  collection: "files"
+
+postgres:
+  host: "localhost"
+  port: 5432
+  user: "fileserver"
+  password: "fileserver"
+  dbname: "file_server"
+  sslmode: "disable"
+
+redis:
+  addr: "localhost:6379"
