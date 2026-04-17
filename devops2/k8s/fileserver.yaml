@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fileserver
+spec:
+  type: NodePort
+  selector:
+    app: fileserver
+  ports:
+    - port: 8080
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fileserver
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fileserver
+  template:
+    metadata:
+      labels:
+        app: fileserver
+    spec:
+      containers:
+        - name: fileserver
+          image: fileserver:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: config-volume
+              mountPath: /app/configs/config.yaml
+              subPath: config.yaml
+      volumes:
+        - name: config-volume
+          configMap:
+            name: fileserver-config
